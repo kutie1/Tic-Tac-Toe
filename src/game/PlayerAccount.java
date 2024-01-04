@@ -3,7 +3,7 @@ package game;
 import java.io.Serializable;
 
 public class PlayerAccount implements Serializable {
-    private final String nickname;
+    public final String nickname;
     transient private char mark;
     private int roundsWon;
     private int roundsPlayed;
