@@ -11,4 +11,12 @@ public class Game {
         this.board = new Board();
     }
 
+    void restartGame() {
+        // TODO: restartGame()
+    }
+
+    public PlayerAccount play() {
+        // TODO: play()
+        return null;
+    }
 }

@@ -8,7 +8,7 @@ public class PlayerAccount implements Serializable {
     private int roundsWon;
     private int roundsPlayed;
 
-    PlayerAccount(String nickname) {
+    public PlayerAccount(String nickname) {
         this.nickname = nickname;
         this.roundsWon = 0;
         this.roundsPlayed = 0;
