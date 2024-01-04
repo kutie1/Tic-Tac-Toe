@@ -21,4 +21,9 @@ public class Board {
         // TODO: isDraw()
         return false;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
