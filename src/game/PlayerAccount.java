@@ -1,6 +1,7 @@
 package game;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class PlayerAccount implements Serializable {
     public final String nickname;

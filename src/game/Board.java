@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Objects;
+
 public class Board {
     private final String[][] matrix;
 

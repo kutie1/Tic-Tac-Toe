@@ -3,6 +3,7 @@ package game;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Storage {
     private List<PlayerAccount> players;
@@ -34,17 +35,25 @@ public class Storage {
     }
 
     public boolean isPlayerPresent(String nickname) {
-        // TODO: isPlayerPresent()
+        for (PlayerAccount account : players){
+            if (Objects.equals(account.nickname, nickname)){
+                return true;
+            }
+        }
         return false;
     }
 
     public PlayerAccount getPlayer(String nickname) {
-        // TODO: getPlayer()
+        for (PlayerAccount account : players){
+            if (Objects.equals(account.nickname, nickname)){
+                return account;
+            }
+        }
         return null;
     }
 
     public void saveNewPlayer(PlayerAccount player) {
-        // TODO: saveNewPlayer()
+        players.add(player);
     }
 
     public void saveChanges() {
