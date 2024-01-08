@@ -1,8 +1,6 @@
 package game;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +10,11 @@ public class Storage {
      * Оскільки склад завжди 1, то він має бути 1 на всю програму один
      */
     private static Storage singleInstance;
-    private final String filepath = "./assets/storage.bin";
+    private static final String filepath = "./assets/storage.bin";
 
     // pattern singleton
     public static Storage getInstance() {
-        // TODO: create single Instance
+        // create single Instance
         if (Storage.singleInstance == null) {
             Storage.singleInstance = new Storage();
         }
@@ -50,6 +48,16 @@ public class Storage {
     }
 
     public void saveChanges() {
-        // TODO: saveChanges()
+        try {
+            FileOutputStream fos = new FileOutputStream(filepath);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(players);
+
+            oos.flush();
+            fos.flush();
+            oos.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
