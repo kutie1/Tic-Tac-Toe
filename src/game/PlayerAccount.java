@@ -1,11 +1,12 @@
 package game;
 
 import java.io.Serializable;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class PlayerAccount implements Serializable {
     public final String nickname;
-    transient private char mark;
+    transient public char mark;
     private int roundsWon;
     private int roundsPlayed;
 
@@ -17,17 +18,22 @@ public class PlayerAccount implements Serializable {
 
     private static int readNumber123(String text) {
         // TODO: readNumber123()
-//        int number = 0;
-//        while (true) {
-//            System.out.print(text);
-//            number = scanner.nextInt();
-//            if (number == 1 || number == 2 || number == 3) {
-//                break;
-//            } else {
-//                System.out.println("Введіть 1, 2, 3");
-//            }
-//        }
-//        return number;
+        Scanner scanner = new Scanner(System.in);
+        int number = 0;
+        while (true) {
+            System.out.print(text);
+            try {
+                number = scanner.nextInt();
+            } catch (InputMismatchException e){
+                System.out.println("Введіть 1, 2, 3");
+            }
+            if (number == 1 || number == 2 || number == 3) {
+                break;
+            } else {
+                System.out.println("Введіть 1, 2, 3");
+            }
+        }
+        return number;
     }
 
     /**

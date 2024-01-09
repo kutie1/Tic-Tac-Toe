@@ -30,12 +30,27 @@ public class Board {
 
     boolean isWin(PlayerAccount player) {
         // TODO: isWin()
-        return false;
+        String mark = String.valueOf(player.mark);
+        return Objects.equals(matrix[0][0], mark) && matrix[0][0].equals(mark) && Objects.equals(matrix[0][1], mark) && Objects.equals(matrix[0][2], mark) ||
+                Objects.equals(matrix[1][0], mark) && Objects.equals(matrix[1][1], mark) && Objects.equals(matrix[1][2], mark) ||
+                Objects.equals(matrix[2][0], mark) && Objects.equals(matrix[2][1], mark) && Objects.equals(matrix[2][2], mark) ||
+                Objects.equals(matrix[0][2], mark) && Objects.equals(matrix[1][2], mark) && Objects.equals(matrix[2][2], mark) ||
+                Objects.equals(matrix[0][1], mark) && Objects.equals(matrix[1][1], mark) && Objects.equals(matrix[2][1], mark) ||
+                Objects.equals(matrix[0][0], mark) && Objects.equals(matrix[1][0], mark) && Objects.equals(matrix[2][0], mark) ||
+                Objects.equals(matrix[0][2], mark) && Objects.equals(matrix[1][1], mark) && Objects.equals(matrix[2][0], mark) ||
+                Objects.equals(matrix[0][0], mark) && Objects.equals(matrix[1][1], mark) && Objects.equals(matrix[2][2], mark);
     }
 
     boolean isDraw() {
         // TODO: isDraw()
-        return false;
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (Objects.equals(matrix[row][col], " ")) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @Override

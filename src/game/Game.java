@@ -13,6 +13,9 @@ public class Game {
 
     void restartGame() {
         // TODO: restartGame()
+        System.out.println("Гра перезапускається...");
+        this.board = new Board();
+        play();
     }
 
     public PlayerAccount play() {
