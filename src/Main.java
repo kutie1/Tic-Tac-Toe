@@ -29,8 +29,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        PlayerAccount firstPlayer = getPlayer("Перший гравець введіть своє ім'я: ");
-        PlayerAccount secondPlayer = getPlayer("Другий гравець введіть своє ім'я: ");
+        PlayerAccount firstPlayer = getPlayer("Перший гравець (X) введіть своє ім'я: ");
+        PlayerAccount secondPlayer = getPlayer("Другий гравець (O) введіть своє ім'я: ");
+
+        firstPlayer.mark = 'X';                 // first must be X
+        secondPlayer.mark = 'O';                // then second is O
 
         Game game = new Game(firstPlayer, secondPlayer);
         PlayerAccount winner = game.play();
