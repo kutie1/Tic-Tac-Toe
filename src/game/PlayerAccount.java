@@ -2,6 +2,7 @@ package game;
 
 import java.io.Serializable;
 import java.util.InputMismatchException;
+import java.util.Objects;
 import java.util.Scanner;
 
 class RestartGameException extends RuntimeException {
@@ -31,8 +32,16 @@ public class PlayerAccount implements Serializable {
             System.out.print(text);
             String input = "";
             try {
-                number = scanner.nextInt();
-            } catch (InputMismatchException e){
+                input = scanner.nextLine();
+                number = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                // restart & quit / exit
+                input = input.trim().toLowerCase();
+                if (Objects.equals(input, "restart")){
+                    throw new RestartGameException();
+                } else if (Objects.equals(input, "exit") || Objects.equals(input, "quit")) {
+                    throw new ExitGameException();
+                }
                 System.out.println("Введіть 1, 2, 3");
             }
             if (number == 1 || number == 2 || number == 3) {

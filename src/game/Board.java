@@ -25,6 +25,7 @@ public class Board {
             matrix[row][column] = String.valueOf(mark);
             return true;
         }
+        System.out.println("Це місце зайняте, спробуйте ще раз");
         return false;
     }
 
