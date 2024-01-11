@@ -43,6 +43,7 @@ public class PlayerAccount implements Serializable {
                     throw new ExitGameException();
                 }
                 System.out.println("Введіть 1, 2, 3");
+                continue;
             }
             if (number == 1 || number == 2 || number == 3) {
                 break;

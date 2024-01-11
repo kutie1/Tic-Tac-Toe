@@ -23,6 +23,7 @@ public class Game {
                 currentPlayer.putMark(board);
             } catch (ExitGameException e) {
                 System.out.println("Ви вирішили зупинити гру");
+                System.exit(0);
             } catch (RestartGameException e) {
                 System.out.println("Гра розпочинається заново...");
                 this.board = new Board();
