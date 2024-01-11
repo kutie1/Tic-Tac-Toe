@@ -17,7 +17,7 @@ public class PlayerAccount implements Serializable {
     }
 
     private static int readNumber123(String text) {
-        // TODO: readNumber123()
+        // readNumber123()
         Scanner scanner = new Scanner(System.in);
         int number = 0;
         while (true) {
