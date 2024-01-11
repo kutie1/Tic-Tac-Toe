@@ -4,6 +4,14 @@ import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+class RestartGameException extends RuntimeException {
+
+}
+
+class ExitGameException extends RuntimeException {
+
+}
+
 public class PlayerAccount implements Serializable {
     public final String nickname;
     transient public char mark;
@@ -17,11 +25,11 @@ public class PlayerAccount implements Serializable {
     }
 
     private static int readNumber123(String text) {
-        // readNumber123()
         Scanner scanner = new Scanner(System.in);
         int number = 0;
         while (true) {
             System.out.print(text);
+            String input = "";
             try {
                 number = scanner.nextInt();
             } catch (InputMismatchException e){
@@ -46,15 +54,13 @@ public class PlayerAccount implements Serializable {
      * @param board дошка, на якій розміщуються мітки
      */
     void putMark(Board board) {
-        //TODO: putMark();
-        Scanner scanner = new Scanner(System.in);
         int row = 0;
         int column = 0;
-        while (!board.putMark(row, column, mark)){
+        do {
             row = readNumber123("Рядок: ");
             column = readNumber123("Стовпчик: ");
-        }
-        board.putMark(row, column, mark);
+            // while player is trying to place his mark into occupied place
+        } while (!board.putMark(row, column, mark));
     }
 
     void increaseRounds(boolean isWin) {
